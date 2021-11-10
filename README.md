@@ -106,8 +106,8 @@ screen -r oci-help
 
 
 ### 以下为我自己摸索安装指定oci 3.1.1版本；
-常规升级
-sudo apt update
+#常规升级
+sudo apt update   
 sudo apt -y upgrade
 
 以下＃号为python创建和配置虚拟环境
