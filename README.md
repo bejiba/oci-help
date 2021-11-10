@@ -102,3 +102,81 @@ screen -r oci-help
 
 ### 终止 screen 会话
 在 screen 会话中 按下 Ctrl 不松，按下字母 D 键，即可终止该 screen 会话。
+
+
+
+以下为我自己摸索安装指定oci 3.1.1版本；
+常规升级
+sudo apt update
+sudo apt -y upgrade
+
+以下＃号为python创建和配置虚拟环境
+#sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+#wget https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz
+#tar -xf Python-3.8.3.tgz
+#cd Python-3.8.3
+#./configure --enable-optimizations
+#sudo make altinstall
+#通过运行以下命令之一来创建虚拟环境
+#python3.8 -m venv oracle-cli
+#通过运行以下命令激活虚拟环境
+#source oracle-cli/bin/activate
+#下载并解压oci-cli.zip。
+#运行以下命令。
+#pip install oci_cli-*-py2.py3-none-any.whl
+
+
+
+如果系统自带python2 
+查看python的版本
+直接输入python就能看到python的版本
+先要卸载python2安装python3
+卸载python2
+sudo apt-get remove python
+
+
+安装python3
+sudo apt-get install python3
+sudo apt-get autoremove
+此时系统中python2已经被删除，python3已经安装，但是默认的python、pip处理没有更新，
+所以
+更新python3为默认python
+cd /usr/bin
+
+rm -rf python
+
+ln -s /usr/bin/python3 python
+
+将pip3设置为默认pip
+
+ln -s /usr/bin/pip3 /usr/bin/pip
+
+使用以下命令为Python 3及其所有依赖项安装pip
+apt install -y python3-pip
+升级pip
+pip install --upgrade pip
+pip3 install --upgrade pip
+通过发出以下命令来验证安装，该命令将打印pip版本：
+pip --version
+
+下载3.1.1并解压缩
+sudo apt -y install unzip
+wget https://github.com/oracle/oci-cli/releases/download/v3.1.1/oci-cli-3.1.1.zip
+unzip oci-cli-3.1.1.zip
+cd /root/oci-cli/
+pip install oci_cli-3.1.1-py3-none-any.whl
+pip3 install oci_cli-3.1.1-py3-none-any.whl
+pip install oci-cli
+
+遇到的问题可执行下列命令
+pip3 install --upgrade pip
+pip install --ignore-installed PyYAML
+
+
+# 重新加载环境变量
+. ~/.bashrc
+# 查看 oci 版本
+oci -v
+
+卸载
+pip uninstall oci-cli
