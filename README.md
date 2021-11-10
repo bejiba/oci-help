@@ -106,17 +106,25 @@ screen -r oci-help
 
 
 ### 以下为我自己摸索安装指定oci 3.1.1版本；
-#常规升级
+#常规升级   
+```
 sudo apt update   
 sudo apt -y upgrade
-
-以下＃号为python创建和配置虚拟环境
-#sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
-#wget https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz
-#tar -xf Python-3.8.3.tgz
-#cd Python-3.8.3
-#./configure --enable-optimizations
-#sudo make altinstall
+```
+## 以下＃号为python创建和配置虚拟环境   
+```
+sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev 
+```
+wget https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz   
+```
+tar -xf Python-3.8.3.tgz   
+```
+cd Python-3.8.3   
+```
+./configure --enable-optimizations   
+```
+sudo make altinstall   
+```
 #通过运行以下命令之一来创建虚拟环境
 #python3.8 -m venv oracle-cli
 #通过运行以下命令激活虚拟环境
